@@ -47,7 +47,7 @@ $(function() {
     });
   }else if(!localStorage.expires){
     $("#app-auth-required").show();
-  }else if(new Date()>localStorage.expires){
+  }else if(new Date()>new Date(localStorage.expires)){
     $("#app-auth-accesstoken").show();
     $.post("https://anilist.co/api/auth/access_token?",{
       "grant_type":"refresh_token",
