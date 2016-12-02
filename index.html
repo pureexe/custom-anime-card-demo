@@ -3,97 +3,98 @@
   <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body class="grey lighten-3">
-      <main>
-        <div id="app-auth-required" class="valign-wrapper" style="display:none;width:100vw;height:100vh">
-          <div class="valign" style="margin-left:auto;margin-right:auto;">
-            <div class="card blue-grey darken-1" style="margin:0px;">
-              <div class="card-content">
-                <div class="center">
-                  <img src="img/logo_al.png" />
-                </div>
-                <div>
-                  <a href="#" id="sign-in-anilist" class="btn waves-effect waves-light orange">SignIn in With Anilist</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="app-auth-accesstoken" class="valign-wrapper" style="display:none;width:100vw;height:100vh">
-          <div class="valign" style="margin-left:auto;margin-right:auto;">
-            <div class="card" style="margin:0px;">
-              <div class="card-content">
-                  <div class="preloader-wrapper active small ">
-                    <div class="spinner-layer spinner-blue-only">
-                      <div class="circle-clipper left">
-                        <div class="circle"></div>
-                      </div><div class="gap-patch">
-                        <div class="circle"></div>
-                      </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                      </div>
-                    </div>
-                  </div>
-                <span class="center" style="vertical-align: 10px;margin-left: 12px;">
-                  Authenating with Anilist
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="app-main" class="container" style="display:none;">
-          <div class="card">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Custom Anime Card</title>
+  </head>
+  <body class="grey lighten-3">
+    <main>
+      <div id="app-auth-required" class="valign-wrapper" style="display:none;width:100vw;height:100vh">
+        <div class="valign" style="margin-left:auto;margin-right:auto;">
+          <div class="card blue-grey darken-1" style="margin:0px;">
             <div class="card-content">
-              <div class="input-field" style="margin-top:0px;">
-                <input placeholder="Anime (English or Romanji)" id="anime-query" type="text" style="margin-bottom:0px;">
+              <div class="center">
+                <img src="img/logo_al.png" />
+              </div>
+              <div>
+                <a href="#" id="sign-in-anilist" class="btn waves-effect waves-light orange">SignIn in With Anilist</a>
               </div>
             </div>
           </div>
-          <div id="result-render">
-          </div>
         </div>
-      </main>
-      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-      <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
-      <script type="text/javascript" src="js/app.js"></script>
-      <script id="template-search" type="text/x-handlebars-template">
-        {{#if this.error}}
-        <div class="card">
-          <div class="card-content center">
-            <h3>No result</h3>
-          </div>
-        </div>
-        {{else}}
-          {{#each this}}
-            <div class="card horizontal waves-effect">
-              <div class="card-image">
-                <img src="{{this.image_url_lge}}" />
-              </div>
-              <div class="card-stacked">
-                <div class="card-title" style="margin-left:20px;">
-                  {{this.title_romaji}}
-                </div>
-                <div style="margin-left:20px;margin-right:20px;">
-                  <div class="row">
-                    <div class="col s12"><a>English:</a> {{this.title_english}}</div>
-                    <div class="col s6"><a>Type:</a> {{this.type}}</div>
-                    <div class="col s6"><a>Episode:</a> {{this.total_episodes}}</div>
-                    <div class="col s6"><a>Start:</a> {{formatTime this.start_date}}</div>
-                    <div class="col s6"><a>End:</a> {{formatTime this.end_date}}</div>
-                    <div class="col s6"><a>Status:</a> {{this.airing_status}}</div>
+      </div>
+      <div id="app-auth-accesstoken" class="valign-wrapper" style="display:none;width:100vw;height:100vh">
+        <div class="valign" style="margin-left:auto;margin-right:auto;">
+          <div class="card" style="margin:0px;">
+            <div class="card-content">
+                <div class="preloader-wrapper active small ">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                  </div>
                   </div>
                 </div>
-                <div class="card-content">
-                  <h3 style="font-size: 24px;font-weight: 300;margin-top:0px;">Synopsis</h3>
-                  <p>{{this.description}}</p>
+              <span class="center" style="vertical-align: 10px;margin-left: 12px;">
+                Authenating with Anilist
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="app-main" class="container" style="display:none;">
+        <div class="card">
+          <div class="card-content">
+            <div class="input-field" style="margin-top:0px;">
+              <input placeholder="Anime (English or Romanji)" id="anime-query" type="text" style="margin-bottom:0px;">
+            </div>
+        </div>
+        </div>
+        <div id="result-render">
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script id="template-search" type="text/x-handlebars-template">
+      {{#if this.error}}
+      <div class="card">
+        <div class="card-content center">
+          <h3>No result</h3>
+        </div>
+      </div>
+      {{else}}
+        {{#each this}}
+          <div class="card horizontal waves-effect">
+            <div class="card-image">
+              <img src="{{this.image_url_lge}}" />
+            </div>
+            <div class="card-stacked">
+              <div class="card-title" style="margin-left:20px;">
+                {{this.title_romaji}}
+              </div>
+              <div style="margin-left:20px;margin-right:20px;">
+                <div class="row">
+                  <div class="col s12"><a>English:</a> {{this.title_english}}</div>
+                  <div class="col s6"><a>Type:</a> {{this.type}}</div>
+                  <div class="col s6"><a>Episode:</a> {{this.total_episodes}}</div>
+                  <div class="col s6"><a>Start:</a> {{formatTime this.start_date}}</div>
+                  <div class="col s6"><a>End:</a> {{formatTime this.end_date}}</div>
+                  <div class="col s6"><a>Status:</a> {{this.airing_status}}</div>
                 </div>
               </div>
+              <div class="card-content">
+                <h3 style="font-size: 24px;font-weight: 300;margin-top:0px;">Synopsis</h3>
+                <p>{{this.description}}</p>
+              </div>
             </div>
-          {{/each}}
-        {{/if}}
-      </script>
-    </body>
-  </html>
+          </div>
+        {{/each}}
+      {{/if}}
+    </script>
+  </body>
+</html>
